@@ -1,3 +1,5 @@
 .terraform
+
+# This sould be removed when we move the states to s3 -> https://terramate.io/docs/cli/getting-started/#run-terraform-in-both-stacks
 .terraform.lock.hcl
 terraform.tfstate
