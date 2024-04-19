@@ -24,7 +24,7 @@ resource "aws_instance" "my_web_app" {
 resource "aws_instance" "my_web_app_2" {
   ami = "ami-005e54dee72cc1d00"
 
-  instance_type = "m7g.metal" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
+  instance_type = "r5d.8xlarge" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
 
   tags = {
     Environment = "production"
