@@ -1,11 +1,13 @@
-name: Preview Terraform Plan
+name: Run Terraform Apply
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   preview:
-    name: Plan
+    name: Apply
     runs-on: ubuntu-latest
 
     permissions:
@@ -24,7 +26,7 @@ jobs:
 
       - name: Install Terramate
         uses: terramate-io/terramate-action@v1
-
+          
       - name: Install asdf
         uses: asdf-vm/actions/setup@v3
 
@@ -50,39 +52,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
-      - name: Create Terraform plan on changed stacks
+      - name: Run Terraform init on changed stacks
         if: steps.list.outputs.stdout
+        id: init
         run: |
           terramate run --changed -- terraform init
-          terramate run --changed -- terraform validate
-          terramate run --changed -- terraform plan -out out.tfplan
 
-      - name: Generate Preview Comment
+      - name: Create Terraform apply on changed stacks
         if: steps.list.outputs.stdout
-        id: comment
+        id: apply
         run: |
-          echo >>pr-comment.txt "### List of Changed Stacks"
-          echo >>pr-comment.txt
-          echo >>pr-comment.txt '```bash'
-          echo >>pr-comment.txt "${{ steps.list.outputs.stdout }}"
-          echo >>pr-comment.txt '```'
-          echo >>pr-comment.txt
-          echo >>pr-comment.txt "#### Terraform Plan"
-          echo >>pr-comment.txt
-          echo >>pr-comment.txt '```terraform'
-          terramate run --changed -- terraform show -no-color out.tfplan 2>&1 | dd bs=1024 count=248 >>pr-comment.txt
-          echo >>pr-comment.txt '```'
-          cat pr-comment.txt >>$GITHUB_STEP_SUMMARY
-
-      - name: Inform about no Changed Stacks
-        if: (!steps.list.outputs.stdout)
-        run: |
-          echo >>pr-comment.txt '### No changed stacks.'
-          cat pr-comment.txt >>$GITHUB_STEP_SUMMARY
-
-      - name: Publish Plans for Changed Stacks
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          header: terraform-plan
-          path: pr-comment.txt
+          terramate run --changed -- terraform apply -input=false -auto-approve
