@@ -42,11 +42,7 @@ jobs:
           echo "STDOUT" >>$GITHUB_OUTPUT
           exit ${EXIT_CODE}
 
-      - name: Test AWS Credentials
-        env:
-            GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
+        # https://github.com/aws-actions/configure-aws-credentials
       - name: Configure AWS Credentials
         if: steps.list.outputs.stdout
         uses: aws-actions/configure-aws-credentials@v2
