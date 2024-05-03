@@ -45,7 +45,7 @@ jobs:
       - name: Test AWS Credentials
         env:
           TEST_ENV: ${{secrets.AWS_SESSION_TOKEN}}
-        run: echo "$TEST_ENV"
+        run: echo "$GITHUB_CONTEXT"
 
       - name: Configure AWS Credentials
         if: steps.list.outputs.stdout
