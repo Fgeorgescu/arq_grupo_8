@@ -44,7 +44,7 @@ jobs:
 
       - name: Test AWS Credentials
         env:
-          TEST_ENV: ${{secrets.AWS_SESSION_TOKEN}}
+            GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
 
       - name: Configure AWS Credentials
