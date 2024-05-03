@@ -42,13 +42,19 @@ jobs:
           echo "STDOUT" >>$GITHUB_OUTPUT
           exit ${EXIT_CODE}
 
+      - name: Test AWS Credentials
+        env:
+          TEST_ENV: ${{secrets.AWS_SESSION_TOKEN}}
+        run: echo "$TEST_ENV"
+
       - name: Configure AWS Credentials
         if: steps.list.outputs.stdout
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
+          aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
+          aws-region: us-east-1
 
       - name: Create Terraform plan on changed stacks
         if: steps.list.outputs.stdout
