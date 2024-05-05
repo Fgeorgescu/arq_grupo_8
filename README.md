@@ -4,3 +4,5 @@ Antes de empezar con la demo o a trabajar, es necesario configurar el entorno de
 1. Iniciar el Lab de AWS
 2. Obtener las credenciales
 3. Sumar las credenciales como secrets en Github
+
+
