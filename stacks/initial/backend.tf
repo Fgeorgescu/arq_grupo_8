@@ -1,6 +1,9 @@
 // TERRAMATE: GENERATED AUTOMATICALLY DO NOT EDIT
 
 terraform {
-  backend "local" {
+  backend "s3" {
+    bucket = "infrastructure-stacks"
+    key    = "tpo"
+    region = "us-east-1"
   }
 }
