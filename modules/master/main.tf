@@ -4,6 +4,6 @@ resource "aws_instance" "test_module_instance" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "${vars.instance_name}"
+    Name = "${var.instance_name}"
   }
 }
