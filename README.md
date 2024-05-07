@@ -6,3 +6,14 @@ Antes de empezar con la demo o a trabajar, es necesario configurar el entorno de
 3. Sumar las credenciales como secrets en Github
 
 
+Crear un nuevo stack:
+```shell
+terramate create \
+  --name "Bob" \
+  --description "Bob's first stack" \
+  stacks/bob
+```
+
+
+
+
