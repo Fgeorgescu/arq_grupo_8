@@ -3,6 +3,6 @@ resource "aws_instance" "instance-1" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "terramate-example"
+    Name = "terramate-example-2"
   }
 }
