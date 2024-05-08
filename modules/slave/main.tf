@@ -1,4 +1,4 @@
-resource "aws_subnet" "slave_private_subnet" {
+resource "aws_subnet" "slave_public_subnet" {
   vpc_id     = "vpc-08c07fc88ec42d090"
   cidr_block = var.slave_cidr_block
 
