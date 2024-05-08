@@ -12,12 +12,12 @@ variable "tags" {
 }
 
 variable "instance_type" {
-  description = "Instance type that will be used as master"
+  description = "Instance type that will be used as slave"
   type = string
   default = "t2.micro"
 }
 
-variable "master_cidr_block" {
+variable "slave_cidr_block" {
   description = "cidr block used to generate a subnet for this components"
   type = string
 }
