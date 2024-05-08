@@ -7,18 +7,6 @@ resource "aws_subnet" "slave_public_subnet" {
   }
 }
 
-resource "aws_instance" "slave_instance" {
-  ami = "ami-07caf09b362be10b8" # Amazon Linux
-  instance_type = var.instance_type
-  subnet_id     = aws_subnet.slave_public_subnet.id
-
-  security_groups = [ var.slave_sg_id ]
-  
-  tags = {
-    Name = "${var.client_name}_slave_instance"
-  }
-}
-
 resource "aws_security_group" "allow_internet_traffic" {
   name        = "${var.client_name}_slave"
   description = "Allow inbound traffic and all outbound traffic to the slave of ${var.client_name}"
