@@ -15,7 +15,7 @@ module "master-module" {
     slave_sg_id = module.sg.slave_sg_id
 }
 
-module "master-module" {
+module "slave-module" {
     source = "../../modules/slave"
 
     client_name = "Azamon"
