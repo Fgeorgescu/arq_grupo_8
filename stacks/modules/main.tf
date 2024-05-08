@@ -3,10 +3,9 @@ module "sg" {
     source = "../../modules/global"
     
     client_name = "Azamon"
-
 }
 
-module "test-modules" {
+module "master-module" {
     source = "../../modules/master"
 
     client_name = "Azamon"
