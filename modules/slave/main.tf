@@ -36,3 +36,33 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ingress_from_master" {
 }
 
 # Regla de egress
+
+resource "aws_launch_template" "slave_launch_template" {
+  name_prefix   = "${var.client_name}_template"
+  image_id      = "ami-07caf09b362be10b8"
+  instance_type = var.instance_type
+  vpc_security_group_ids = [var.slave_sg_id]
+
+  tag_specifications {
+      resource_type = "instance"
+
+      tags = {
+        Name = "${var.client_name}"
+      }
+    }
+}
+
+
+
+resource "aws_autoscaling_group" "slave_asg" {
+  name = "${var.client_name}_asg"
+  availability_zones = ["us-east-1a", "us-east-1b"]
+  desired_capacity   = 3
+  max_size           = 5
+  min_size           = 2
+
+  launch_template {
+    id      = aws_launch_template.slave_launch_template.id
+    version = "$Latest"
+  }
+}
