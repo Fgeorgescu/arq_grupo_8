@@ -1,7 +1,7 @@
 # Input variable definitions
 
-variable "instance_name" {
-    description = "Name for the master instance"
+variable "client_name" {
+    description = "Name for the client"
     type = string
 }
 
