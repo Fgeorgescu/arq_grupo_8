@@ -23,6 +23,6 @@ terramate create \
   stacks/bob
 ```
 
-
-
-
+# SG documentation
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_egress_rule
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule
