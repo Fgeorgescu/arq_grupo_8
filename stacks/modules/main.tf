@@ -10,7 +10,7 @@ module "master-module" {
 
     client_name = "Azamon"
     instance_type = "t2.small"
-    master_cidr_block = "172.31.96.0/20"
+    master_cidr_block = "172.31.128.0/20"
     master_sg_id = module.sg.master_sg_id
     slave_sg_id = module.sg.slave_sg_id
 }
