@@ -12,7 +12,7 @@ resource "aws_instance" "slave_instance" {
   instance_type = var.instance_type
   subnet_id     = aws_subnet.slave_public_subnet.id
 
-  security_groups = [ aws_security_group.allow_internet_traffic ]
+  security_groups = [ var.slave_sg_id ]
   
   tags = {
     Name = "${var.client_name}_slave_instance"
