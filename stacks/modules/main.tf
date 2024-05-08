@@ -3,5 +3,5 @@ module "test-modules" {
 
     client_name = "Azamon"
     instance_type = "t2.small"
-    master_cidr_block = "172.31.1.0/16/24"
+    master_cidr_block = "172.31.1.0/24"
 }
