@@ -32,7 +32,7 @@ resource "aws_subnet" "original_subnet" {
 
 resource "aws_instance" "master_instance" {
   ami = "ami-07caf09b362be10b8" # Amazon Linux
-  instance_type = t2.micro
+  instance_type = "t2.micro"
   subnet_id     = aws_subnet.original_subnet.id
 
   security_groups = [ aws_security_group.master_sg.id ]
@@ -51,7 +51,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_internet_traffic_global" {
 
 resource "aws_vpc_security_group_ingress_rule" "allow_slave_ingress" {
   security_group_id = aws_security_group.master_sg.id
-  referenced_security_group_id = vaws_security_group.slave_sg.id
+  referenced_security_group_id = aws_security_group.slave_sg.id
   ip_protocol       = "-1"
 }
 
