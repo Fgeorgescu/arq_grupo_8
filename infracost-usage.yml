@@ -5,4 +5,4 @@ resource_usage:
   # Terraform AWS resources
   #
   aws_autoscaling_group:
-    instances: 5 # Number of instances in the autoscaling group.
+    instances: 1 # Number of instances in the autoscaling group.
