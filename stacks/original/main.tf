@@ -82,7 +82,7 @@ resource "aws_vpc_security_group_egress_rule" "egress_from_master_sg" {
 resource "aws_launch_template" "slave_launch_template" {
   name_prefix   = "original_implementation_template"
   image_id      = "ami-07caf09b362be10b8"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   vpc_security_group_ids = [aws_security_group.slave_sg.id]
 
   tag_specifications {
