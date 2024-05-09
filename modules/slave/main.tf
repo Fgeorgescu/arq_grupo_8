@@ -1,5 +1,5 @@
 resource "aws_subnet" "slave_public_subnet" {
-  vpc_id     = "vpc-08c07fc88ec42d090"
+  vpc_id     = "vpc-077ad65459ac463e4"
   cidr_block = var.slave_cidr_block
 
   tags = {
