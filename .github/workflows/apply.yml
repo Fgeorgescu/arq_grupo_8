@@ -39,7 +39,7 @@ jobs:
         id: list
         run: |
           echo "stdout<<STDOUT" >>$GITHUB_OUTPUT
-          terramate list --changed >>$GITHUB_OUTPUT
+          terramate list >>$GITHUB_OUTPUT
           EXIT_CODE=$?
           echo "STDOUT" >>$GITHUB_OUTPUT
           exit ${EXIT_CODE}
@@ -57,7 +57,7 @@ jobs:
         if: steps.list.outputs.stdout
         id: init
         run: |
-          terramate run --changed -- terraform init
+          terramate run -- terraform init
 
       - name: Create Terraform apply on changed stacks
         if: steps.list.outputs.stdout
