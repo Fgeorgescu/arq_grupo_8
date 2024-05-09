@@ -3,7 +3,7 @@
 terraform {
   backend "s3" {
     bucket = "infrastructure-stacks"
-    key    = "tpo"
+    key    = "tpo/client-1"
     region = "us-east-1"
   }
 }
