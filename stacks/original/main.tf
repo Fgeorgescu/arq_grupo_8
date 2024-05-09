@@ -32,7 +32,7 @@ resource "aws_subnet" "original_subnet" {
 
 resource "aws_instance" "master_instance" {
   ami = "ami-07caf09b362be10b8" # Amazon Linux
-  instance_type = "t2.large"
+  instance_type = "t2.2xlarge"
   subnet_id     = aws_subnet.original_subnet.id
 
   security_groups = [ aws_security_group.master_sg_original.id ]
