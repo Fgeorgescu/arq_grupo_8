@@ -57,7 +57,7 @@ jobs:
         run: |
           terramate run --changed -- terraform init
           terramate run --changed -- terraform validate
-          terramate run --changed -- terraform plan -out out.tfplan
+          terramate run -- terraform plan -out out.tfplan
 
       - name: Generate Preview Comment
         if: steps.list.outputs.stdout
