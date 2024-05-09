@@ -18,7 +18,7 @@ module "master-module" {
 module "slave-module" {
     source = "../../modules/slave"
 
-    client_name = "client-1-rer"
+    client_name = "client-1"
     instance_type = "t2.micro"
     slave_cidr_block = "172.31.96.0/20"
     master_sg_id = module.sg.master_sg_id
