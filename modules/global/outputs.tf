@@ -1,9 +1,9 @@
 output "master_sg_id" {
-  value     = aws_security_group.allow_internet_traffic_master.id
+  value     = aws_security_group.master_sg.id
   sensitive = false
 }
 
 output "slave_sg_id" {
-  value     = aws_security_group.allow_master_traffic_slave.id
+  value     = aws_security_group.slave_sg.id
   sensitive = false
 }
