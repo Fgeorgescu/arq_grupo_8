@@ -63,4 +63,4 @@ jobs:
         if: steps.list.outputs.stdout
         id: apply
         run: |
-          terramate run --changed -- terraform apply -input=false -auto-approve
+          terramate run -- terraform apply -input=false -auto-approve
