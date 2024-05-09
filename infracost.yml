@@ -1,0 +1,9 @@
+version: 0.1
+
+projects:
+  - path: stacks/client-1
+    name: stacks-client-1
+    skip_autodetect: true
+  - path: stacks/original
+    name: stacks-original
+    skip_autodetect: true
