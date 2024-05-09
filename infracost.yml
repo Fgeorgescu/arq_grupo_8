@@ -1,5 +1,4 @@
 version: 0.1
-
 projects:
   - path: stacks/client-1
     name: stacks-client-1
