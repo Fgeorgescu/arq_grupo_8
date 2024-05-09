@@ -4,22 +4,21 @@ resource "aws_subnet" "slave_public_subnet" {
 
   tags = {
     Name = "${var.client_name}_slave_subnet"
+    Client = "${var.client_name}"
   }
 }
 
-resource "aws_security_group" "allow_internet_traffic" {
-  name        = "${var.client_name}_slave"
-  description = "Allow inbound traffic and all outbound traffic to the slave of ${var.client_name}"
-  vpc_id      = "vpc-08c07fc88ec42d090"
-
-  tags = {
-    Name = "${var.client_name}_slave"
-  }
-}
-
-resource "aws_vpc_security_group_ingress_rule" "allow_ingress_from_master" {
+resource "aws_vpc_security_group_ingress_rule" "ingress_from_master_sg" {
   security_group_id = var.slave_sg_id
   referenced_security_group_id = var.master_sg_id
+  description = "Ingress rule that allow the slave to communicate with the master instance"
+  ip_protocol       = "-1"
+}
+
+resource "aws_vpc_security_group_egress_rule" "egress_from_master_sg" {
+  security_group_id = var.slave_sg_id
+  referenced_security_group_id = var.master_sg_id
+  description = "Egress rule that allow the slave to communicate with the master instance"
   ip_protocol       = "-1"
 }
 
@@ -36,10 +35,10 @@ resource "aws_launch_template" "slave_launch_template" {
 
       tags = {
         Name = "${var.client_name}"
+        Client = "${var.client_name}"
       }
     }
 }
-
 
 
 resource "aws_autoscaling_group" "slave_asg" {
