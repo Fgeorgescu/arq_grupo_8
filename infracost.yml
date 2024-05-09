@@ -3,7 +3,7 @@ version: 0.1
 projects:
   - path: stacks/client-1
     name: stacks-client-1
-    skip_autodetect: true
+    skip_autodetect: false
   - path: stacks/modules
     name: stacks-modules
-    skip_autodetect: true
+    skip_autodetect: false
