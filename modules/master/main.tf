@@ -35,7 +35,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_slave_ingress" {
 
 # regla de egress
 
-resource "aws_vpc_security_group_rgress_rule" "allow_slave_egress" {
+resource "aws_vpc_security_group_egress_rule" "allow_slave_egress" {
   security_group_id = var.master_sg_id
   referenced_security_group_id = var.slave_sg_id
   ip_protocol       = "-1"
