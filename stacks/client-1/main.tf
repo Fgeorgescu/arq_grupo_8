@@ -10,7 +10,7 @@ module "master-module" {
 
     client_name = "client-1"
     instance_type = "t2.small"
-    master_cidr_block = "172.31.128.0/20"
+    master_cidr_block = "172.31.168.0/20"
     master_sg_id = module.sg.master_sg_id
     slave_sg_id = module.sg.slave_sg_id
 }
@@ -20,7 +20,7 @@ module "slave-module" {
 
     client_name = "client-1-rer"
     instance_type = "t2.micro"
-    slave_cidr_block = "172.31.112.0/20"
+    slave_cidr_block = "172.31.184.0/20"
     master_sg_id = module.sg.master_sg_id
     slave_sg_id = module.sg.slave_sg_id
     desired_capacity = 4
