@@ -3,6 +3,3 @@ projects:
   - path: stacks/client-1
     name: stacks-client-1
     skip_autodetect: false
-  - path: stacks/modules
-    name: stacks-modules
-    skip_autodetect: false
