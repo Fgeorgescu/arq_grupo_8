@@ -37,7 +37,7 @@ jobs:
         id: list
         run: |
           echo "stdout<<STDOUT" >>$GITHUB_OUTPUT
-          terramate list --changed >>$GITHUB_OUTPUT
+          terramate list >>$GITHUB_OUTPUT
           EXIT_CODE=$?
           echo "STDOUT" >>$GITHUB_OUTPUT
           exit ${EXIT_CODE}
@@ -72,7 +72,7 @@ jobs:
           echo >>pr-comment.txt "#### Terraform Plan"
           echo >>pr-comment.txt
           echo >>pr-comment.txt '```terraform'
-          terramate run --changed -- terraform show -no-color out.tfplan 2>&1 | dd bs=1024 count=248 >>pr-comment.txt
+          terramate run -- terraform show -no-color out.tfplan 2>&1 | dd bs=1024 count=248 >>pr-comment.txt
           echo >>pr-comment.txt '```'
           cat pr-comment.txt >>$GITHUB_STEP_SUMMARY
 
