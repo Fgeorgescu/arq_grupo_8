@@ -58,7 +58,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_slave_ingress" {
 # regla de egress
 
 resource "aws_vpc_security_group_egress_rule" "allow_slave_egress" {
-  security_group_id = aws_security_group.master_sg.id
+  security_group_id = aws_security_group.master_sg_original.id
   referenced_security_group_id = aws_security_group.slave_sg_original.id
   ip_protocol       = "-1"
 }
