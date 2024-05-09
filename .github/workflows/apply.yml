@@ -57,10 +57,10 @@ jobs:
         if: steps.list.outputs.stdout
         id: init
         run: |
-          terramate run -- terraform init
+          terramate run --changed terraform init
 
       - name: Create Terraform apply on changed stacks
         if: steps.list.outputs.stdout
         id: apply
         run: |
-          terramate run -- terraform apply -input=false -auto-approve
+          terramate run --changed terraform apply -input=false -auto-approve

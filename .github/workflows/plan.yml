@@ -55,9 +55,9 @@ jobs:
       - name: Create Terraform plan on changed stacks
         if: steps.list.outputs.stdout
         run: |
-          terramate run -- terraform init
-          terramate run -- terraform validate
-          terramate run -- terraform plan -out out.tfplan
+          terramate run --changed terraform init
+          terramate run --changed terraform validate
+          terramate run --changed terraform plan -out out.tfplan
 
       - name: Generate Preview Comment
         if: steps.list.outputs.stdout
@@ -72,7 +72,7 @@ jobs:
           echo >>pr-comment.txt "#### Terraform Plan"
           echo >>pr-comment.txt
           echo >>pr-comment.txt '```terraform'
-          terramate run -- terraform show -no-color out.tfplan 2>&1 | dd bs=1024 count=248 >>pr-comment.txt
+          terramate run --changed terraform show -no-color out.tfplan 2>&1 | dd bs=1024 count=248 >>pr-comment.txt
           echo >>pr-comment.txt '```'
           cat pr-comment.txt >>$GITHUB_STEP_SUMMARY
 

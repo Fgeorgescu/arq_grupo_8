@@ -1,7 +1,7 @@
 resource "aws_security_group" "master_sg" {
   name        = "original_implementation_master_sg"
   description = "Allow inbound traffic and all outbound traffic to the master of original_implementation"
-  vpc_id      = "vpc-077ad65459ac463e4"
+  vpc_id      = "vpc-07d4e8828e405ba5b"
 
   tags = {
     Name = "original_implementation_master_sg"
@@ -12,7 +12,7 @@ resource "aws_security_group" "master_sg" {
 resource "aws_security_group" "slave_sg" {
   name        = "original_implementation_slave_sg"
   description = "Segurity group for the slave structure of the client original_implementation"
-  vpc_id      = "vpc-077ad65459ac463e4"
+  vpc_id      = "vpc-07d4e8828e405ba5b"
 
   tags = {
     Name = "original_implementation_slave_sg"
@@ -21,7 +21,7 @@ resource "aws_security_group" "slave_sg" {
 }
 
 resource "aws_subnet" "original_subnet" {
-  vpc_id     = "vpc-077ad65459ac463e4"
+  vpc_id     = "vpc-07d4e8828e405ba5b"
   cidr_block = "172.31.144.0/20"
   
   tags = {

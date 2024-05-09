@@ -1,5 +1,5 @@
 resource "aws_subnet" "master_public_subnet" {
-  vpc_id     = "vpc-077ad65459ac463e4"
+  vpc_id     = "vpc-07d4e8828e405ba5b"
   cidr_block = var.master_cidr_block
   
   tags = {
