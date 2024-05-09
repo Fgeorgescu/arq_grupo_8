@@ -31,3 +31,19 @@ variable "slave_sg_id" {
   description = "cidr block used to generate a subnet for this components"
   type = string
 }
+
+variable "desired_capacity" {
+  description = "cidr block used to generate a subnet for this components"
+  type = string
+  default = 1
+}
+variable "max_size" {
+  description = "cidr block used to generate a subnet for this components"
+  type = string
+  default = 3
+}
+variable "min_size" {
+  description = "cidr block used to generate a subnet for this components"
+  type = string
+  default = 0
+}

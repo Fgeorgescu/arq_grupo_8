@@ -23,4 +23,7 @@ module "slave-module" {
     slave_cidr_block = "172.31.112.0/20"
     master_sg_id = module.sg.master_sg_id
     slave_sg_id = module.sg.slave_sg_id
+    desired_capacity = 2
+    min_size = 1
+    max_size = 4
 }
