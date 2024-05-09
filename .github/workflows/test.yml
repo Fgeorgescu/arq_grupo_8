@@ -1,4 +1,4 @@
-name: Terramate with Infracost
+name: Terramate with Infracost 
 
 on:
   pull_request:
