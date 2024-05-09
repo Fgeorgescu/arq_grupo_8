@@ -4,7 +4,7 @@ resource "aws_subnet" "slave_public_subnet" {
 
   tags = {
     Name = "${var.client_name}_slave_subnet"
-    Client = "${var.client_name}"
+    #Client = "${var.client_name}"
   }
 }
 
