@@ -4,6 +4,6 @@ resource_usage:
   #
   # Terraform AWS resources
   #
-  aws_autoscaling_group:
+  aws_autoscaling_group.slave_asg:
     instances: 2 # Number of instances in the autoscaling group.
     monthly_cpu_credit_hrs: 350 # Number of hours in the month where the instance is expected to burst. Only applicable with t2, t3 & t4 Instance types. T2 requires credit_specification to be unlimited.
