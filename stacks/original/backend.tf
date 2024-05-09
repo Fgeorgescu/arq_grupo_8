@@ -2,7 +2,7 @@
 
 terraform {
   backend "s3" {
-    bucket = "infrastructure-stacks-2"
+    bucket = "infrastructure-stacks"
     key    = "tpo/original"
     region = "us-east-1"
   }
